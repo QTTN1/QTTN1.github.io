@@ -1,0 +1,73 @@
+:root{
+  --cream:#F6EFE6;
+  --gold:#D4AF37;
+  --silver:#C0C4C8;
+  --light-pink:#F7D6DD;
+  --chocolate:#3B2F2F;
+  --magenta:#C2185B;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Lora", Georgia, serif;
+  background:var(--cream);
+  color:var(--chocolate);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+}
+
+.hero{
+  padding:4rem 1rem;
+  background:linear-gradient(180deg, rgba(255,255,255,0.6), transparent);
+  text-align:center;
+}
+.hero-inner{max-width:900px;margin:0 auto}
+h1{
+  margin:0 0 .25rem 0;
+  font-family:"Cormorant Garamond", serif;
+  font-size:3rem;
+  color:var(--magenta);
+  letter-spacing:0.4px;
+}
+.lead{color:var(--chocolate);opacity:.9;margin-bottom:1rem}
+
+.cta{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--gold),var(--light-pink));
+  color:white;
+  padding:.75rem 1.25rem;
+  border-radius:999px;
+  text-decoration:none;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  font-weight:600;
+}
+
+.container{max-width:980px;margin:2rem auto;padding:0 1rem}
+.about p{max-width:60ch}
+
+.pinned-grid{display:flex;gap:1rem;flex-wrap:wrap}
+.pinned-col{flex:1;min-width:240px;background:linear-gradient(180deg,white,rgba(255,255,255,0.97));border:1px solid var(--silver);padding:1rem;border-radius:10px}
+.pinned-bio{margin-top:.5rem;color:rgba(59,47,47,.85)}
+
+.repo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.repo-card{
+  display:block;
+  padding:1rem;
+  background:linear-gradient(180deg,white,rgba(255,255,255,0.95));
+  border:1px solid var(--silver);
+  border-radius:12px;
+  color:var(--chocolate);
+  text-decoration:none;
+  transition:transform .14s ease, box-shadow .14s ease;
+}
+.repo-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.06)}
+.repo-card h3{margin:.25rem 0;font-family:"Cormorant Garamond",serif;color:var(--magenta)}
+.repo-card p{margin:0;color:rgba(59,47,47,.8)}
+
+.site-footer{padding:2rem 1rem;text-align:center;color:var(--silver)}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tiye — Home</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Hi, I'm Tiye ⭐</h1>
+      <p class="lead">Soft cream design • gold & silver accents • light-pink warmth</p>
+      <p><a class="cta" href="https://github.com/QTTN1" target="_blank" rel="noopener">Visit GitHub profile</a></p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="about">
+      <h2>About</h2>
+      <p>Hi, I'm Tiye Ngachoko. I recently graduated from UMass Amherst with a major in Informatics and a minor in Sociology, and I’m now in my first semester of Duke’s Master of Interdisciplinary Data Science program. I’m passionate about leveraging data to solve real‑world problems, empower individuals, and drive meaningful change. This past year, I completed my Senior Honors Research Thesis, where I used R and Python to analyze human and AI interpretations of Black representation in television. I’m currently seeking internships for Summer 2027 to apply my skillset, gain hands‑on industry experience, and expand my expertise in analytics and machine learning. Long-term, I hope to harness data science to inform equitable policy, build accessible tools, and reduce systemic barriers for minoritized groups.</p>
+    </section>
+
+    <section class="pinned">
+      <h2>Pinned</h2>
+      <div class="pinned-grid">
+        <div class="pinned-col">
+          <h3>Data</h3>
+          <ul>
+            <li><a href="https://github.com/QTTN1/ids706-postgres-demo">ids706-postgres-demo</a> — Demo repo for course</li>
+          </ul>
+          <p class="pinned-bio">Hi, I'm Tiye Ngachoko. I recently graduated from UMass Amherst with a major in Informatics and a minor in Sociology, and I’m now in my first semester of Duke’s Master of Interdisciplinary Data Science program. I’m passionate about leveraging data to solve real‑world problems, empower individuals, and drive meaningful change.</p>
+        </div>
+        <div class="pinned-col">
+          <h3>AI-assisted repos</h3>
+          <ul id="ai-repos">
+            <li>(Add repo names to pin here)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="repos">
+      <h2>Featured repositories</h2>
+      <div id="repo-grid" class="repo-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© Tiye • Designed with cream, gold, light-pink accents</small>
+  </footer>
+
+  <script>
+    fetch('https://api.github.com/users/QTTN1/repos?per_page=6&sort=updated')
+      .then(res => res.json())
+      .then(repos => {
+        const grid = document.getElementById('repo-grid');
+        repos.forEach(r => {
+          const card = document.createElement('a');
+          card.className = 'repo-card';
+          card.href = r.html_url;
+          card.target = '_blank';
+          card.rel = 'noopener';
+          card.innerHTML = '<h3>' + r.name + '</h3><p>' + (r.description || '') + '</p>';
+          grid.appendChild(card);
+        });
+      }).catch(()=>{/* silent fallback */});
+  </script>
+</body>
+</html>
